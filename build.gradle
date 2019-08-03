@@ -4,17 +4,21 @@ buildscript {
         springCloudVersion = 'Greenwich.RELEASE'
     }
     repositories {
-        mavenCentral()
+        maven {
+            url 'http://172.42.42.100:9081/artifactory/gradle-dev'
+        }
     }
     dependencies {
         classpath("io.spring.gradle:dependency-management-plugin:1.0.7.RELEASE")
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("org.jfrog.buildinfo:build-info-extractor-gradle:4+")
     }
 }
 
 apply plugin: "java"
 apply plugin: "org.springframework.boot"
 apply plugin: "io.spring.dependency-management"
+apply plugin: "com.jfrog.artifactory"
 
 group 'com.rgy'
 version '1.0-SNAPSHOT'
@@ -29,7 +33,9 @@ dependencyManagement {
 }
 
 repositories {
-    mavenCentral()
+    maven {
+        url 'http://172.42.42.100:9081/artifactory/gradle-dev'
+    }
 }
 
 dependencies {
