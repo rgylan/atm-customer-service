@@ -21,17 +21,12 @@ spring:
     properties:
       hibernate:
         format_sql: true
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
 
 logging:
   file: logs/atm-customer-service
   level:
     root: info
-
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: ${EUREKA_URI:http://localhost:8080/eureka}
-  instance:
-    leaseRenewalIntervalInSeconds: 1
-    leaseExpirationDurationInSeconds: 2
-    preferIpAddress: true
