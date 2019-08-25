@@ -23,7 +23,7 @@ spring:
         format_sql: true
   cloud:
     consul:
-      host: localhost
+      host: 172.20.20.11
       port: 8500
 
 logging:
